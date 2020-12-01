@@ -12,6 +12,10 @@
   ],
   "rules": {
     "no-var": "error",
-    "no-console": "warn"
+    "no-console": "warn",
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ]
   }
 }

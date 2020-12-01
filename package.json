@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}' --cache --fix",
     "lint:style": "stylelint './src/**/*.{less,css,scss}' --config=.stylelintrc.json --fix",
-    "commit": "git add . && git cz"
+    "commit": "git add . && git cz",
+    "build": "webpack --config build/webpack.prod.js",
+    "serve": "webpack serve --config build/webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -43,10 +45,17 @@
       "path": "node_modules/cz-conventional-changelog"
     }
   },
+  "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.14.0",
     "eslint-config-standard-with-typescript": "^19.0.1",
@@ -57,11 +66,18 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-standard": "^4.1.0",
+    "html-webpack-plugin": "^4.5.0",
     "husky": "^4.3.0",
+    "less": "^3.12.2",
+    "less-loader": "^7.1.0",
+    "less-plugin-autoprefix": "^2.0.0",
     "lint-staged": "^10.5.2",
+    "style-loader": "^2.0.0",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0",
+    "ts-loader": "^8.0.11",
     "typescript": "^4.1.2",
+    "url-loader": "^4.1.1",
     "webpack": "^5.9.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0",
