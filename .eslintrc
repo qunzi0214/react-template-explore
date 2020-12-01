@@ -9,5 +9,9 @@
     "react",
     "react-hooks",
     "jsx-a11y"
-  ]
+  ],
+  "rules": {
+    "no-var": "error",
+    "no-console": "warn"
+  }
 }
