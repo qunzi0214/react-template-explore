@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "eslint-config-standard-with-typescript"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y"
+  ]
+}
