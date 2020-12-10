@@ -1,4 +1,1 @@
-.app {
-  font-size: 18px;
-  color: red;
-}
+@import '~antd/dist/antd.css';
