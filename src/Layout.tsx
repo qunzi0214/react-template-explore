@@ -5,8 +5,8 @@ import {
   Link,
 } from 'react-router-dom'
 
-const Home = lazy(async () => await import('./views/home'))
-const Users = lazy(async () => await import('./views/users'))
+const Home = lazy(async () => await import('./routes/home'))
+const Users = lazy(async () => await import('./routes/users'))
 
 const Layout: FC = () => (
   <div>

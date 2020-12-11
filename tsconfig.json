@@ -16,6 +16,9 @@
     ],
     "resolveJsonModule": true
   },
+  "includes": [
+    "./declare/externals.d.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
