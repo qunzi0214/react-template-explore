@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import './index.css'
+import Layout from './Layout'
+import './index.less'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 ReactDOM.render(
-  <div>
-    <App />
-  </div>,
+  <Router>
+    <Layout />
+  </Router>,
   document.getElementById('app'),
 )
