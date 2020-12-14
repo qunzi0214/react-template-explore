@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
+import { version } from 'antd'
 
 const Index: FC = () => (
-  <h2>users</h2>
+  <h1>antd version: {version}</h1>
 )
 
 export default Index

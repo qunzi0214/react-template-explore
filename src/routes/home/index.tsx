@@ -1,13 +1,14 @@
 import React, { FC } from 'react'
 import Style from './index.less'
+import { Button, DatePicker } from 'antd'
 
 const Index: FC = () => (
-  <h2 className={Style.root}>
-    Home
-    <p className={Style.txt}>
-      Son
-    </p>
-  </h2>
+  <div className={Style.root}>
+    <DatePicker />
+    <Button type="primary" style={{ marginLeft: 8 }}>
+      Primary Button
+    </Button>
+  </div>
 )
 
 export default Index
