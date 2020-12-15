@@ -32,8 +32,8 @@ const App: FC = () => (
       <Content>
         <Switch>
           <Redirect exact path="/" to="/home" />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/users" component={Users} />
+          <Route path="/home" component={Home} />
+          <Route path="/users" component={Users} />
         </Switch>
       </Content>
 
