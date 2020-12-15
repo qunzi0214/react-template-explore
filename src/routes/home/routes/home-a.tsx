@@ -4,7 +4,7 @@ const A: FC = () => (
   <div style={{
     height: '100px',
     textAlign: 'center',
-  }}>i m a</div>
+  }}>AAAAAAAAAAAAAAAAAAAAAA</div>
 )
 
 export default A

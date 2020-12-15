@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { Radio } from 'antd'
 import {
   Switch,
@@ -7,7 +7,6 @@ import {
   useRouteMatch,
   useHistory,
   useLocation,
-  // Link,
 } from 'react-router-dom'
 
 import A from './routes/home-a'
@@ -18,6 +17,9 @@ const Index: FC = () => {
   const history = useHistory()
   const location = useLocation()
 
+  // console.log(location)
+  // TODO: router change will cause twice render?
+
   const [subPath, setSubPath] = useState(location.pathname)
 
   const onChange = (e: any): void => {
@@ -25,8 +27,12 @@ const Index: FC = () => {
     history.push(e.target.value)
   }
 
+  useEffect(() => {
+    setSubPath(location.pathname)
+  }, [location])
+
   return (
-    <div>
+    <>
       <Radio.Group onChange={onChange} value={subPath}>
         <Radio value={`${match.path}/home-a`}>A</Radio>
         <Radio value={`${match.path}/home-b`}>B</Radio>
@@ -36,7 +42,7 @@ const Index: FC = () => {
         <Route path={`${match.path}/home-a`} component={A} />
         <Route path={`${match.path}/home-b`} component={B} />
       </Switch>
-    </div>
+    </>
   )
 }
 

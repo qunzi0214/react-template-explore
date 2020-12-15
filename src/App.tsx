@@ -6,7 +6,10 @@ import {
   Link,
   Redirect,
 } from 'react-router-dom'
-import { Layout, Menu } from 'antd'
+import {
+  Layout,
+  Menu,
+} from 'antd'
 
 import Home from './routes/home'
 import Users from './routes/users'
