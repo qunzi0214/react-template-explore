@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 
-const A: FC = () => (
+const Bus: FC = () => (
   <div style={{
     height: '100px',
     textAlign: 'center',
-  }}>AAAAAAAAAAAAAAAAAAAAAA</div>
+  }}>BusBusBusBusBusBus</div>
 )
 
-export default A
+export default Bus

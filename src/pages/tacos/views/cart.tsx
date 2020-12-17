@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 
-const B: FC = () => (
+const Cart: FC = () => (
   <div style={{
     height: '100px',
     textAlign: 'center',
-  }}>BBBBBBBBBBBBBBBBBBBBB</div>
+  }}>CartCartCartCartCartCartCart</div>
 )
 
-export default B
+export default Cart

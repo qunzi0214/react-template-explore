@@ -11,37 +11,104 @@ import {
   Menu,
 } from 'antd'
 
-import Home from './routes/home'
-import Users from './routes/users'
+import Sandwiches from './pages/sandwiches'
+import Tacos from './pages/tacos'
 
 const { Content } = Layout
 
-// const Home = lazy(async () => await import('./routes/home'))
-// const Users = lazy(async () => await import('./routes/users'))
+interface RouteI {
+  path: string
+  label: string
+  component: keyof RoutesCompsMapI
+  routes?: RouteI[]
+}
 
-const App: FC = () => (
-  <Router>
-    <Layout>
+interface RoutesCompsMapI {
+  Sandwiches?: FC<any>
+  Tacos?: FC<any>
+  Egg?: FC<any>
+  Bread?: FC<any>
+  Bus?: FC<any>
+  Cart?: FC<any>
+}
 
-      <Menu mode="horizontal" defaultSelectedKeys={['1']}>
-        <Menu.Item key="1">
-          <Link to="/home">home</Link>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <Link to="/users">users</Link>
-        </Menu.Item>
-      </Menu>
+const routes: RouteI[] = [
+  {
+    path: '/sandwiches',
+    label: 'sandwiches',
+    component: 'Sandwiches',
+    routes: [
+      {
+        path: '/sandwiches/egg',
+        label: 'egg',
+        component: 'Egg',
+      },
+      {
+        path: '/sandwiches/bread',
+        label: 'bread',
+        component: 'Bread',
+      },
+    ],
+  },
+  {
+    path: '/tacos',
+    label: 'tacos',
+    component: 'Tacos',
+    routes: [
+      {
+        path: '/tacos/bus',
+        label: 'bus',
+        component: 'Bus',
+      },
+      {
+        path: '/tacos/cart',
+        label: 'cart',
+        component: 'Cart',
+      },
+    ],
+  },
+]
 
-      <Content>
-        <Switch>
-          <Redirect exact path="/" to="/home" />
-          <Route path="/home" component={Home} />
-          <Route path="/users" component={Users} />
-        </Switch>
-      </Content>
+const routesCompsMap: RoutesCompsMapI = {
+  Sandwiches,
+  Tacos,
+}
 
-    </Layout>
-  </Router>
-)
+const App: FC = () => {
+  return (
+    <Router>
+      <Layout>
+
+        <Menu mode="horizontal" defaultSelectedKeys={['1']}>
+          {
+            routes.map(route => (
+              <Menu.Item key={route.path}>
+                <Link to={`${route.path}`}>{route.label}</Link>
+              </Menu.Item>
+            ))
+          }
+        </Menu>
+
+        <Content>
+          <Switch>
+            <Redirect exact path="/" to={routes[0].path} />
+            {
+              routes.map((route, index) => (
+                <Route path={`${route.path}`} key={index} render={props => {
+                  const Comp = routesCompsMap[route.component]
+                  return (
+                    // @ts-expect-error
+                    <Comp {...props} routes={route.routes} />
+                  )
+                }} />
+              ))
+            }
+          </Switch>
+        </Content>
+
+      </Layout>
+    </Router>
+  )
+}
 
 export default App
